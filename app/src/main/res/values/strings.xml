@@ -1,0 +1,155 @@
+<resources>
+
+    <string name="app_name">Potkal</string>
+    <string name="menu">Menu</string>
+    <string name="backup">Yedekle</string>
+    <string name="restore">Geri Yükle</string>
+    <string name="settings">Ayarlar</string>
+    <string name="general">Genel</string>
+    <string name="reset">Sıfırla</string>
+
+
+    <string name="color">Renk</string>
+    <string name="only_on_current_wordset">Mevcut Koleksiyonda</string>
+    <string name="on_all_wordset">Bütün Kelime Koleksiyonlarında</string>
+    <string name="other">Diğer</string>
+    <string name="question">Soru</string>
+    <string name="choice">Seçenek</string>
+    <string name="panel">Panel</string>
+    <string name="col_btn_txt">Düğme Metni</string>
+
+    <string name="colors_are_reset">Renk Ayarları Sıfırlandı!</string>
+
+
+    <string name="appearance">Görünüm</string>
+    <string name="detailed">DETAYLI</string>
+    <string name="simple">BASİT</string>
+    <string name="text_size">Metin Boyutu</string>
+    <string name="language">Dil</string>
+    <string name="potkal" translatable="false">Potkal</string>
+    <string name="backed_up">Yedekleme Başarılı!</string>
+    <string name="restored">Geri Yükleme Başarılı!</string>
+    <string name="deleted">Silindi!</string>
+    <string name="goodbye">Hoşça Kalın!</string>
+    <string name="no_set_to_backup">Yedekleme İçin Dosya Yok!</string>
+    <string name="no_file_to_restore">Yedek Bulunamadı!</string>
+    <string name="please_sig_in_first">Lütfen Önce Giriş Yapın!</string>
+    <string name="background">Arka Plan</string>
+    <string name="button">Düğme</string>
+    <string name="text">Metin</string>
+    <string name="top_bar">Üst Çubuk</string>
+    <string name="dialog">Diyalog</string>
+    <string name="delete">Sil</string>
+    <string name="gdrive_limit_exceeded">Dosya Boyutu Yedekeleme Limitinin Üzerinde!</string>
+    <string name="confirm_backup">Uyarı: Google Drive\'a 25Mb\'a Kadar Yedekleme Yapabilirsiniz!\n(Uygulama Sizi Uyaracaktır.)\n\nEğer Varsa Mevcut Yedeğin Üzerine Yazılacak!</string>
+    <string name="not_signed">Giriş Yapılmadı!</string>
+
+    <string name="try_after_this">Yedekleme/Geri Yükleme İşlemini Bu İşlemden Sonra Tekrar Deneyiniz</string>
+    <string name="sign_out_google_account">Hesaptan Çıkış Yap</string>
+    <string name="signed_out">Çıkış Yapıldı</string>
+    <string name="error_on_signin">Google Hesabına Giriş Yapılamadı!</string>
+    <string name="something_went_wrong">Bir Şeyler Ters Gitti!</string>
+    <string name="connecting_google_account">Google Hesabına Bağlanılıyor...</string>
+    <string name="account_connected">Giriş Yapılan Hesap</string>
+
+    <string name="word_will_be_deleted">Kelime Silinsin Mi?</string>
+    <string name="set_will_be_deleted">Kelime Koleksiyonu Silinsin Mi?</string>
+
+    <string name="set_name">Koleksiyon İsmi</string>
+    <string name="set">Kelime Koleksiyonu</string>
+    <string name="set_exists">Aynı İsimde Kelime Koleksiyonu Mevcut!</string>
+    <string name="word_exists">Bu Kelime Zaten Mevcut!</string>
+    <string name="word_exists_in">Bu Kelime Şurada Mevcut: </string>
+
+    <string name="sort_by_created_date">Sırala: Tarihe Göre</string>
+    <string name="sort_by_alphabetical">Sırala: Alfabetik</string>
+
+    <string name="add">Ekle</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="change">Değiştir</string>
+    <string name="change_capital_tr">DEĞİŞTİR</string>
+    <string name="tdk_results">TDK Sonucu</string>
+    <string name="word">Kelime</string>
+    <string name="kind">Tür</string>
+    <string name="lang">Dil</string>
+    <string name="definition">Anlam</string>
+    <string name="example">Örnek</string>
+    <string name="input_word">Lütfen Kelime Giriniz!</string>
+
+    <!--TEST-->
+    <string name="select_set">Kelime Koleksiyonu Seçiniz</string>
+    <string name="start_test">TESTİ BAŞLAT</string>
+    <string name="correct">Doğru:</string>
+    <string name="incorrect">Yanlış:</string>
+    <string name="create_test">TEST</string>
+    <string name="choose_question_choice">Soru-Şık Şeklini Seçiniz</string>
+    <string name="pls_choose_set">Lütfen Kelime Koleksiyonu Seçiniz!</string>
+    <string name="pls_choose_safe_set_test">Seçilen Kelime Koleksiyon/Koleksiyonları 5\'ten Fazla Kelime-Anlam İkilisi İçermeli!</string>
+    <string name="word_definition">Kelime - Anlam</string>
+    <string name="definition_word">Anlam - Kelime</string>
+    <string name="finish_test">Testi Bitir</string>
+    <string name="exit">Çıkış</string>
+    <string name="test_movement">Test Geçiş</string>
+    <string name="input_set_name">Koleksiyon İsmi Girin!</string>
+    <string name="panel_background">Panel Arka Plan</string>
+    <string name="test_choice_txt">Seçenek Metni</string>
+    <string name="test_choice_correct">Doğru Seçenek</string>
+    <string name="test_choice_incorrect">Yanlış Seçenek</string>
+
+
+    <string name="score_panel_bg">Skor Paneli Arka Plan</string>
+    <string name="question_bg_col">Soru Arka Plan</string>
+    <string name="choice_bg">Seçenekler Arka Plan</string>
+
+    <string name="score_panel">Skor Paneli</string>
+
+    <string name="incorrect_selection">Yanlış İşaretlenenler</string>
+    <string name="test_movement_swipe">hareket</string>
+    <string name="test_movement_button">TUŞ</string>
+
+    <string name="word_set">Kelime Koleksiyonu</string>
+    <string name="hide">Gizle</string>
+    <string name="hide_def">Anlamları Gizle</string>
+    <string name="show_def">Anlamları Göster</string>
+
+    <string name="show">Göster</string>
+    <string name="create_word_game">KELİME OYUNU</string>
+    <string name="start_word_gane">Oyunu Başlat</string>
+    <string name="hint_test">Test Oluşturmak İçin Yazıya Dokununuz</string>
+    <string name="hint_top_btn">Ayarlar ve Google Drive Yedekleme/Geri Yükleme</string>
+    <string name="welcome_to_potkal">Potkal\'a\nHoş Geldiniz!</string>
+    <string name="permission">Google Drive\'a Sınırlı Erişim Dışında Hiçbir Özel İzin Gerekli Değildir!</string>
+    <string name="close">KAPAT</string>
+
+    <string name="word_pts">Kelime Puanı:</string>
+    <string name="letter_count">Harf Sayısı:</string>
+    <string name="back">Geri</string>
+    <string name="pts">Puan:</string>
+    <string name="chance">Cevap Hakkı:</string>
+    <string name="show_clue">İpucu Göster</string>
+    <string name="pts_total">Toplam Puan:</string>
+    <string name="wrong_answered">Yanlış Cevaplanan</string>
+    <string name="correct_answered">Doğru Cevaplanan</string>
+    <string name="unanswered">Cevapsız:</string>
+    <string name="pts_gained">Kazanılan Puan:</string>
+    <string name="get_letter">Harf Al</string>
+    <string name="next">İleri</string>
+    <string name="answer">Cevapla</string>
+    <string name="question_type">Soru Tipi</string>
+    <string name="by_letter_count">Harf Sayısına Göre</string>
+    <string name="random">Karışık</string>
+    <string name="by_collection_order">Koleksiyon Sırasına Göre</string>
+    <string name="unanswered_title">Cevapsız</string>
+    <string name="difficulty">Zorluk:</string>
+    <string name="word_game">Kelime Oyunu</string>
+    <string name="pls_choose_safe_set_wordgame">Seçilen Kelime Koleksiyonu En Az 1 Adet Kelime-Anlam İkilisi İçermeli</string>
+
+
+<!--    WORDGAME-->
+    <string name="letter_size">Harf Boyutu</string>
+    <string name="clue_size">İpucu</string>
+    <string name="word_game_hexagon_size">Kelime Oyunu Petek Boyutu</string>
+    <string name="word_hint">KELİME</string>
+    <string name="comb_color">Petek Rengi</string>
+    <string name="comb_letter_color">Petek Harf Rengi</string>
+</resources>

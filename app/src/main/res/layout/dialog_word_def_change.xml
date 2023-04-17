@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:id="@+id/svDlgChngWordDef"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_rounded_corners_rd10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.metaplikasyon.potkal.fragments.fragment_worddef.views.spinners.SpinnerPts
+                            android:id="@+id/spnrPtsDlgChng"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:foregroundGravity="center"
+                            android:gravity="center"
+                            android:text="@string/difficulty"
+                            android:textColor="#000000"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/spnrPtsDlgChng"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.EtDlg
+                        android:id="@+id/etDlgAddWrd"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_dialog_custom_et"
+                        android:hint="@string/word"
+                        android:importantForAutofill="no"
+                        android:paddingBottom="2dp"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.EtDlg
+                        android:id="@+id/etDlgAddDef"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/bg_dialog_custom_et"
+                        android:hint="@string/definition"
+                        android:importantForAutofill="no"
+                        android:paddingBottom="2dp"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.EtDlg
+                        android:id="@+id/etDlgChngKind"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/bg_dialog_custom_et"
+                        android:hint="@string/kind"
+                        android:importantForAutofill="no"
+                        android:paddingBottom="2dp"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000"
+                        android:textSize="16sp" />
+
+                    <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.EtDlg
+                        android:id="@+id/etDlgChngLang"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_dialog_custom_et"
+                        android:hint="@string/language"
+                        android:importantForAutofill="no"
+                        android:paddingBottom="2dp"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000"
+                        android:textSize="16sp" />
+
+                    <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.EtDlg
+                        android:id="@+id/etDlgChngExmp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_dialog_custom_et"
+                        android:hint="@string/example"
+                        android:importantForAutofill="no"
+                        android:paddingBottom="2dp"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textColorHint="#000000"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.BtnDlg
+                    android:id="@+id/btnDsplyTdkChng"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_dialog_custom_btn"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:text="@string/tdk_results"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <ProgressBar
+                    android:id="@+id/pbTdkChng"
+                    style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:alpha="0"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#0088CF"
+                    android:progressTintMode="src_in"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
+
+                <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.BtnDlg
+                    android:id="@+id/btnDlgAddWrdSetCncl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_dialog_custom_btn"
+                    android:text="@string/cancel"
+                    android:textSize="20sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5" />
+
+                <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.BtnDlg
+                    android:id="@+id/btnDlgAddWrdSetAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_dialog_custom_btn"
+                    android:text="@string/change_capital_tr"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

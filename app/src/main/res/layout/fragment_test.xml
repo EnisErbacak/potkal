@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clTestMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#072A51">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTestScore"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_rounded_corners_rd10"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="10dp">
+
+        <FrameLayout
+            android:id="@+id/flTestScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foregroundGravity="center"
+                android:padding="10dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvTestScoreCorrect"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_asset_correct" />
+
+                <TextView
+                    android:id="@+id/tvTestScoreCorrect"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_asset_incorrect" />
+
+                <TextView
+                    android:id="@+id/tvTestScoreIncorrect"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="0"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvTestQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_rounded_corners_rd10"
+        android:maxLines="5"
+        android:minLines="1"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/clTestScore"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <ScrollView
+        android:id="@+id/svTestChoice"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_rounded_corners_rd10"
+        android:fadeScrollbars="false"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:paddingBottom="30dp"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        app:layout_constraintBottom_toTopOf="@+id/btnTestPrev"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTestQuestion">
+
+        <LinearLayout
+            android:id="@+id/llTestChoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="vertical">
+
+            <com.metaplikasyon.potkal.fragments.fragment_test.test_screen.views.buttons.ButtonChoice
+                android:id="@+id/btnTestCh1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_dialog_custom_btn"
+                android:textAllCaps="false"
+                android:textColor="#E8DCB8" />
+
+            <com.metaplikasyon.potkal.fragments.fragment_test.test_screen.views.buttons.ButtonChoice
+                android:id="@+id/btnTestCh2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_dialog_custom_btn"
+                android:textAllCaps="false"
+                android:textColor="#E8DCB8" />
+
+            <com.metaplikasyon.potkal.fragments.fragment_test.test_screen.views.buttons.ButtonChoice
+                android:id="@+id/btnTestCh3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_dialog_custom_btn"
+                android:textAllCaps="false"
+                android:textColor="#E8DCB8"
+                android:textSize="14sp" />
+
+            <com.metaplikasyon.potkal.fragments.fragment_test.test_screen.views.buttons.ButtonChoice
+                android:id="@+id/btnTestCh4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_dialog_custom_btn"
+                android:textAllCaps="false"
+                android:textColor="#E8DCB8" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.BtnDlg
+        android:id="@+id/btnTestFinish"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_rounded_corners_rd10"
+        android:enabled="false"
+        android:text="@string/finish_test"
+        android:textColor="#000000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.BtnDlg
+        android:id="@+id/btnTestPrev"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_dialog_custom_btn"
+        android:enabled="false"
+        android:text="&lt;"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btnTestFinish"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.views.BtnDlg
+        android:id="@+id/btnTestNext"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_dialog_custom_btn"
+        android:enabled="false"
+        android:text="&gt;"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btnTestFinish"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="col_black">#000000</color>
+
+    <color name="beige">#E8DCB8</color>
+    <color name="dark_blue">#111F29</color>
+
+    <color name="wordset_panel">#E8DCB8</color>
+    <color name="wordset_bg">#111F29</color>
+    <color name="wordset_btn_bg">#000000</color>
+    <color name="wordset_statusbar">#28353E</color>
+    <color name="wordset_statusbar_txt">#E8DCB8</color>
+    <color name="general_txt">#111F29</color>
+    <color name="col_btn_gnrl_txt">#E8DCB8</color>
+    <color name="col_btn_gnrl_icon">#E8DCB8</color>
+
+    <color name="worddef_panel">#E8DCB8</color>
+    <color name="worddef_bg">#111F29</color>
+    <color name="worddef_btn_bg">#000000</color>
+    <color name="worddef_statusbar">#28353E</color>
+    <color name="worddef_topbar_txt">#E8DCB8</color>
+
+    <color name="settings_bg">#111F29</color>
+    <color name="settings_panel">#E8DCB8</color>
+    <color name="settings_txt">#111F29</color>
+
+    <color name="general_btn_bg">#111F29</color>
+    <color name="dialog_bg">#E8DCB8</color>
+    <color name="top_status_bar">#111F29</color>
+
+    <color name="test_bg">#111F29</color>
+    <color name="test_panel_bg">#E8DCB8</color>
+    <color name="test_choice_bg">#111F29</color>
+    <color name="test_choice_txt">#E8DCB8</color>
+    <color name="test_txt">#000000</color>
+    <color name="btn_wordgame_bg">#394C73</color>
+    <color name="test_choice_correct">#36d911</color>
+    <color name="test_choice_incorrect">#d91111</color>
+
+</resources>
