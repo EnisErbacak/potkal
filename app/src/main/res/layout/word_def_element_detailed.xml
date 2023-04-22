@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_around_word_def"
+    android:background="@drawable/bg_rounded_corners_rd10"
+    android:minHeight="20dp"
+    android:elevation="@dimen/elevation_word_def">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clSubTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_around_word_def_sub_element"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvWord"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_between_word_def_sub_element"
+            android:textAlignment="viewStart"
+            android:textColor="@color/col_black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tvPoint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/col_black"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clKindOrigin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_around_word_def_sub_element"
+        android:paddingHorizontal="@dimen/margin_indentation_def"
+        app:layout_constraintTop_toBottomOf="@id/clSubTop">
+
+        <TextView
+            android:id="@+id/tvKind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_between_word_def_sub_element"
+            android:textColor="@color/col_black"
+            app:layout_constraintEnd_toStartOf="@id/tvOrigin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvOrigin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_between_word_def_sub_element"
+            android:textColor="@color/col_black"
+            app:layout_constraintStart_toEndOf="@id/tvKind"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/tvDefinition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_around_word_def_sub_element"
+        android:textColor="@color/col_black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/clKindOrigin" />
+
+    <TextView
+        android:id="@+id/tvExample"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_around_word_def_sub_element"
+        android:paddingHorizontal="@dimen/margin_between_word_def_sub_element"
+        android:textColor="@color/col_black"
+        android:textStyle="italic|normal"
+        app:layout_constraintTop_toBottomOf="@id/tvDefinition" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

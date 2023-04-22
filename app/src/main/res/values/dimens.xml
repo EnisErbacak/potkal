@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_around_word_def_sub_element">10dp</dimen>
+    <dimen name="margin_between_word_def_sub_element">7dp</dimen>
+    <dimen name="margin_around_word_def">15dp</dimen>
+    <dimen name="margin_indentation_def">10dp</dimen>
+
+    <dimen name="elevation_word_def">10dp</dimen>
+</resources>
