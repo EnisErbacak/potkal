@@ -23,6 +23,7 @@ import androidx.core.graphics.BlendModeColorFilterCompat;
 import androidx.core.graphics.BlendModeCompat;
 
 import com.metaplikasyon.potkal.R;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.FragmentWordDef;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.manager.WorddefManager;
 import com.metaplikasyon.potkal.file.shared_preferences.SPEditor;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.data.operator.WordOperator;
@@ -43,6 +44,7 @@ public class FragmentDialogAddWrdDef extends AppCompatDialogFragment implements 
     private final String DIALOG_DETAILED="detailed";
     private final String DIALOG_SIMPLE="simple";
 
+    private FragmentWordDef fragmentWordDef;
     private Button btnCncl,btnAddWrdDef, btnDsplyTdk;
     private BtnAddWrdDefLstnr addWrdDefLstnr;
     private ProgressBar pbTdk;
@@ -50,7 +52,7 @@ public class FragmentDialogAddWrdDef extends AppCompatDialogFragment implements 
 
     private SpinnerPts spinnerPts;
     private EditText etDlgAddWrdStr, etDlgAddDef, etDlgAddKind, etDlgAddLang, etDlgAddExmp;
-    private final LinearLayout pnlWrdDefVrt;
+//    private final LinearLayout pnlWrdDefVrt;
 
     private final String setName;
 
@@ -60,10 +62,11 @@ public class FragmentDialogAddWrdDef extends AppCompatDialogFragment implements 
 
     private Word word; // Object that holds selected word's features.
 
-    public FragmentDialogAddWrdDef(LinearLayout pnlWrdDefVrt, String setName) {
-        this.pnlWrdDefVrt=pnlWrdDefVrt;
+    public FragmentDialogAddWrdDef(String setName, FragmentWordDef fragmentWordDef) {
+//        this.pnlWrdDefVrt=pnlWrdDefVrt;
         this.setName=setName;
         word=new Word();
+        this.fragmentWordDef = fragmentWordDef;
     }
 
     // FIRST CALLED
@@ -93,7 +96,7 @@ public class FragmentDialogAddWrdDef extends AppCompatDialogFragment implements 
         View view=inflater.inflate(R.layout.dialog_word_def_add,container);
         svDlgAddWordDef=view.findViewById(R.id.svDlgAddWordDef);
 
-        addWrdDefLstnr = new BtnAddWrdDefLstnr(FragmentDialogAddWrdDef.this,setName, pnlWrdDefVrt);
+        addWrdDefLstnr = new BtnAddWrdDefLstnr(FragmentDialogAddWrdDef.this,setName);
 
         etDlgAddWrdStr = view.findViewById(R.id.etDlgAddWrd);
         etDlgAddDef = view.findViewById(R.id.etDlgAddDef);
@@ -233,13 +236,13 @@ public class FragmentDialogAddWrdDef extends AppCompatDialogFragment implements 
     private class BtnAddWrdDefLstnr implements View.OnClickListener {
 
         private final FragmentDialogAddWrdDef dialog;
-        private final LinearLayout pnlWrdDefVrt;
+//        private final LinearLayout pnlWrdDefVrt;
         private final String setName;
         private final String appearance= new SPEditor().getString(getContext(), SPEditor.APPEARANCE);
 
-        public BtnAddWrdDefLstnr(FragmentDialogAddWrdDef dialog,String setName, LinearLayout pnlWrdDefVrt) {
+        public BtnAddWrdDefLstnr(FragmentDialogAddWrdDef dialog,String setName) {
             this.dialog=dialog;
-            this.pnlWrdDefVrt=pnlWrdDefVrt;
+//            this.pnlWrdDefVrt=pnlWrdDefVrt;
             this.setName=setName;
         }
         int pts;
@@ -264,9 +267,14 @@ public class FragmentDialogAddWrdDef extends AppCompatDialogFragment implements 
                 if(langStr!=null) getWordObj().setLang(langStr);
 
                 if( new WorddefManager().operate(getContext()).add(word.getWrd(), new WordOperator().convert2Json(getWordObj()))) {
-                    new BuilderEditor().getUiEditor(getContext(), setName).updateScreen();
+//                    new BuilderEditor().getUiEditor(getContext(), setName).updateScreen();
+//                    dialog.dismiss();
+                    fragmentWordDef.getWords().add(getWordObj());
+                    fragmentWordDef.updateUi();
                     dialog.dismiss();
                 }
+
+
             }
         }
 

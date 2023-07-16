@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.metaplikasyon.potkal.R;
 import com.metaplikasyon.potkal.file.shared_preferences.SPEditor;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.adapters.SimpleRecyclerAdapter;
@@ -25,6 +26,7 @@ import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.data.Word;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.data.operator.WordOperator;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.ui.UiBuilderSimple;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.ui.operator.BuilderEditor;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.FragmentDialogAddWrdDef;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnSrchWrd;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.views.container.detailed.ClContainerUpper;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.views.container.detailed.LlContainerLower;
@@ -47,9 +49,13 @@ public class FragmentWordDef extends Fragment  {
     private EtSrchWrd etSrchWrd;
     private LinearLayout pnlWordDefVrt;
 
+    private FloatingActionButton btnWordDefAddWord;
+    private SimpleRecyclerAdapter simpleRecyclerAdapter;
     public static int ORDER_BY=0;
 
     public static String setName;
+
+    private ArrayList<Word> words;
 
     public FragmentWordDef(String setName)
     {
@@ -69,10 +75,10 @@ public class FragmentWordDef extends Fragment  {
         UiBuilderSimple uiBuilderSimple = new UiBuilderSimple(context, setName);
         JSONObject jObj=new WordsetManager().operate(context).get(setName);
         ArrayList<String> keys= uiBuilderSimple.getKeyList(jObj.keys(), false);
-        ArrayList<Word> wordList = getWordList(keys, jObj);
+        words = getWordList(keys, jObj);
 
 
-        SimpleRecyclerAdapter simpleRecyclerAdapter = new SimpleRecyclerAdapter(wordList);
+        simpleRecyclerAdapter = new SimpleRecyclerAdapter(words);
         //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setAdapter(simpleRecyclerAdapter);
@@ -87,6 +93,15 @@ public class FragmentWordDef extends Fragment  {
         tvWrdDefTop=getView().findViewById(R.id.tvWrdDefTop);
         tvWrdDefTop.setText(setName);
 
+        btnWordDefAddWord = getView().findViewById(R.id.btnWordDefAddWord);
+        btnWordDefAddWord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new FragmentDialogAddWrdDef(FragmentWordDef.setName
+                        , FragmentWordDef.this).show(((FragmentActivity)context)
+                        .getSupportFragmentManager(), "ADD NEW WORD");
+            }
+        });
 
 //        clMainWorddef=view.findViewById(R.id.clMainWorddef);
 //        svMainWorddef=view.findViewById(R.id.svMainWorddef);
@@ -144,5 +159,17 @@ public class FragmentWordDef extends Fragment  {
             }
         }
         return wordList;
+    }
+
+    public ArrayList<Word> getWords() {
+        return words;
+    }
+
+    public void setWords(ArrayList<Word> words) {
+        this.words = words;
+    }
+
+    public void updateUi() {
+        simpleRecyclerAdapter.notifyDataSetChanged();
     }
 }
