@@ -86,9 +86,9 @@ public class UiBuilderSimple implements UiBuilder {
 
     @Override
     public View getCleanedPanel(Context context) {
-        LinearLayout ll= new ScannerActivity().scanForActivity(context).findViewById(R.id.pnlWordDefVrt);
-        ll.removeAllViews();
-        return ll;
+//        LinearLayout ll= new ScannerActivity().scanForActivity(context).findViewById(R.id.pnlWordDefVrt);
+//        ll.removeAllViews();
+        return null;
     }
 
     @Override

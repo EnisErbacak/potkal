@@ -15,12 +15,27 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.metaplikasyon.potkal.R;
 import com.metaplikasyon.potkal.file.shared_preferences.SPEditor;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.adapters.SimpleRecyclerAdapter;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.data.Word;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.data.operator.WordOperator;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.ui.UiBuilderSimple;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.ui.operator.BuilderEditor;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnSrchWrd;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.views.container.detailed.ClContainerUpper;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.views.container.detailed.LlContainerLower;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.views.container.detailed.LlContainerMain;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.views.edit_text.EtSrchWrd;
+import com.metaplikasyon.potkal.fragments.fragment_wordset.manager.WordsetManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class FragmentWordDef extends Fragment  {
     //********REFACTORED
@@ -47,28 +62,41 @@ public class FragmentWordDef extends Fragment  {
         super.onViewCreated(view, savedInstanceState);
         setCondition(getView());
         Context context=getContext();
-        new BuilderEditor().getUiEditor(getContext(), setName).updateScreen();
+//        new BuilderEditor().getUiEditor(getContext(), setName).updateScreen();
 
-        pnlWordDefVrt=view.findViewById(R.id.pnlWordDefVrt);
-        etSrchWrd=view.findViewById(R.id.etSrchWrd);
-        etSrchWrd.setPnlWordDefVrt(pnlWordDefVrt);
-        btnSrchWrd=view.findViewById(R.id.btnSearchWord);
-        btnSrchWrd.setEtSrchWrd(etSrchWrd);
+        RecyclerView recyclerView = view.findViewById(R.id.rvWordDef);
+
+        UiBuilderSimple uiBuilderSimple = new UiBuilderSimple(context, setName);
+        JSONObject jObj=new WordsetManager().operate(context).get(setName);
+        ArrayList<String> keys= uiBuilderSimple.getKeyList(jObj.keys(), false);
+        ArrayList<Word> wordList = getWordList(keys, jObj);
+
+
+        SimpleRecyclerAdapter simpleRecyclerAdapter = new SimpleRecyclerAdapter(wordList);
+        //recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setAdapter(simpleRecyclerAdapter);
+
+//        pnlWordDefVrt=view.findViewById(R.id.pnlWordDefVrt);
+//        etSrchWrd=view.findViewById(R.id.etSrchWrd);
+//        etSrchWrd.setPnlWordDefVrt(pnlWordDefVrt);
+//        btnSrchWrd=view.findViewById(R.id.btnSearchWord);
+//        btnSrchWrd.setEtSrchWrd(etSrchWrd);
 
 
         tvWrdDefTop=getView().findViewById(R.id.tvWrdDefTop);
         tvWrdDefTop.setText(setName);
 
 
-        clMainWorddef=view.findViewById(R.id.clMainWorddef);
-        svMainWorddef=view.findViewById(R.id.svMainWorddef);
-        setStyle();
+//        clMainWorddef=view.findViewById(R.id.clMainWorddef);
+//        svMainWorddef=view.findViewById(R.id.svMainWorddef);
+//        setStyle();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_word_def,container,false);
+        return inflater.inflate(R.layout.fragment_word_def_new,container,false);
     }
 
     private void setCondition(View view) {
@@ -102,5 +130,19 @@ public class FragmentWordDef extends Fragment  {
             }
             return false;
         }
+    }
+
+    private ArrayList<Word> getWordList(ArrayList<String> keys, JSONObject jObj) {
+        ArrayList<Word> wordList = new ArrayList<>();
+        WordOperator wordOperator=new WordOperator();
+        for(int i=0;i<keys.size();i++) {
+            try {
+                wordList.add(wordOperator.convert2Word(jObj.getJSONObject(keys.get(i)), keys.get(i)));
+            }catch (JSONException je) {
+                je.printStackTrace();
+                break;
+            }
+        }
+        return wordList;
     }
 }

@@ -24,7 +24,7 @@ public class EtSrchWrd extends androidx.appcompat.widget.AppCompatEditText {
     }
 
     private void onCreate() {
-        LinearLayout pnlWordDefVrt=findViewById(R.id.pnlWordDefVrt);
+//        LinearLayout pnlWordDefVrt=findViewById(R.id.pnlWordDefVrt);
         this.addTextChangedListener(new TxtWatcher());
         setStyle();
     }

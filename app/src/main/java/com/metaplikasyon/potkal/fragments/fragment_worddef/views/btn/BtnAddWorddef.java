@@ -42,8 +42,8 @@ public class BtnAddWorddef extends FloatingActionButton {
 
         @Override
         public void onClick(View view) {
-            LinearLayout pnlWordDefVrt = view.getRootView().findViewById(R.id.pnlWordDefVrt);
-            new FragmentDialogAddWrdDef(pnlWordDefVrt, FragmentWordDef.setName).show(((FragmentActivity)context).getSupportFragmentManager(), "ADD NEW WORD");
+//            LinearLayout pnlWordDefVrt = view.getRootView().findViewById(R.id.pnlWordDefVrt);
+//            new FragmentDialogAddWrdDef(pnlWordDefVrt, FragmentWordDef.setName).show(((FragmentActivity)context).getSupportFragmentManager(), "ADD NEW WORD");
         }
     }
 }

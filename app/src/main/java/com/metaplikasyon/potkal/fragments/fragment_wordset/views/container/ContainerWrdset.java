@@ -91,6 +91,7 @@ public class ContainerWrdset extends ConstraintLayout {
         setLayoutParams(lp);
         setBackground(getGradientDrawable(COL_BG, pixelConverter.dp2Px(VAL_CRNR_RDS)));
         locateSubPanels();
+        setElevation(0);
     }
 
     private void locateSubPanels() {

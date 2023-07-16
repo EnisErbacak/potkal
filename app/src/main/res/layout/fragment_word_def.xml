@@ -1,113 +1,121 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clMainWorddef"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#01182B">
+    android:background="#01182B"/>
 
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/svMainWorddef"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <com.metaplikasyon.potkal.fragments.fragment_worddef.views.edit_text.EtSrchWrd
-            android:id="@+id/etSrchWrd"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:background="#FFFFFF"
-            android:ems="10"
-            android:inputType="text"
-            android:visibility="invisible" />
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:id="@+id/clMainWorddef"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:background="#01182B">-->
 
-        <TextView
-            android:id="@+id/tvWrdDefTop"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:singleLine="true"
-            android:textColor="#CDCFF6"
-            android:textSize="30sp" />
-    </RelativeLayout>
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/svMainWorddef"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-    <ScrollView
-        android:id="@+id/svMainWorddef"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="64dp"
-        android:background="#394C73"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <!--        <com.metaplikasyon.potkal.fragments.fragment_worddef.views.edit_text.EtSrchWrd-->
+    <!--            android:id="@+id/etSrchWrd"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginTop="16dp"-->
+    <!--            android:layout_marginBottom="8dp"-->
+    <!--            android:background="#FFFFFF"-->
+    <!--            android:ems="10"-->
+    <!--            android:inputType="text"-->
+    <!--            android:visibility="invisible" />-->
 
-        <LinearLayout
-            android:id="@+id/pnlWordDefVrt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="320dip">
+    <!--        <TextView-->
+    <!--            android:id="@+id/tvWrdDefTop"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginStart="4dp"-->
+    <!--            android:layout_marginTop="16dp"-->
+    <!--            android:layout_marginBottom="8dp"-->
+    <!--            android:singleLine="true"-->
+    <!--            android:textColor="#CDCFF6"-->
+    <!--            android:textSize="30sp" />-->
+    <!--    </RelativeLayout>-->
 
-        </LinearLayout>
-    </ScrollView>
+    <!--    <ScrollView-->
+    <!--        android:id="@+id/svMainWorddef"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="64dp"-->
+    <!--        android:background="#394C73"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-    <com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnAddWorddef
-        android:id="@+id/btnWordDefAddWord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/icon_plus"
-        app:backgroundTint="#111F29"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/pnlWordDefVrt"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="vertical"-->
+    <!--            android:paddingBottom="320dip">-->
 
-    <com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnOpt
-        android:id="@+id/btnWordDefOpt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/icon_options"
-        app:backgroundTint="#111F29"
-        app:layout_constraintBottom_toTopOf="@+id/btnWordDefSrt"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <!--        </LinearLayout>-->
+    <!--    </ScrollView>-->
 
-    <com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnSrt
-        android:id="@+id/btnWordDefSrt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/icon_sort"
-        app:backgroundTint="#111F29"
-        app:layout_constraintBottom_toTopOf="@+id/btnWordDefAddWord"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <!--    <com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnAddWorddef-->
+    <!--        android:id="@+id/btnWordDefAddWord"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:layout_marginBottom="32dp"-->
+    <!--        android:clickable="true"-->
+    <!--        android:focusable="true"-->
+    <!--        android:src="@drawable/icon_plus"-->
+    <!--        app:backgroundTint="#111F29"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
-    <com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnSrchWrd
-        android:id="@+id/btnSearchWord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/btnWordDefOpt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/icon_search"
-        android:focusable="true" />
+    <!--    <com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnOpt-->
+    <!--        android:id="@+id/btnWordDefOpt"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:layout_marginBottom="4dp"-->
+    <!--        android:clickable="true"-->
+    <!--        android:focusable="true"-->
+    <!--        android:src="@drawable/icon_options"-->
+    <!--        app:backgroundTint="#111F29"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/btnWordDefSrt"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    <com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnSrt-->
+    <!--        android:id="@+id/btnWordDefSrt"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:layout_marginBottom="4dp"-->
+    <!--        android:clickable="true"-->
+    <!--        android:focusable="true"-->
+    <!--        android:src="@drawable/icon_sort"-->
+    <!--        app:backgroundTint="#111F29"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/btnWordDefAddWord"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <!--    <com.metaplikasyon.potkal.fragments.fragment_worddef.views.btn.BtnSrchWrd-->
+    <!--        android:id="@+id/btnSearchWord"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:layout_marginBottom="4dp"-->
+    <!--        android:clickable="true"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/btnWordDefOpt"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:srcCompat="@drawable/icon_search"-->
+    <!--        android:focusable="true" />-->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

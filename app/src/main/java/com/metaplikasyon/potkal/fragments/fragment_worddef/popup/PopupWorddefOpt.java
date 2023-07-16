@@ -22,15 +22,15 @@ public class PopupWorddefOpt extends PopupMenu
 
         setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
 
-            final LinearLayout ll=new ScannerActivity().scanForActivity(context).findViewById(R.id.pnlWordDefVrt);
+//            final LinearLayout ll=new ScannerActivity().scanForActivity(context).findViewById(R.id.pnlWordDefVrt);
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case 0:
-                        new UiEditorWorddef().hide(ll);
+//                        new UiEditorWorddef().hide(ll);
                         break;
                     case 1:
-                        new UiEditorWorddef().show(ll);
+//                        new UiEditorWorddef().show(ll);
                         break;
                     default:
                         return false;

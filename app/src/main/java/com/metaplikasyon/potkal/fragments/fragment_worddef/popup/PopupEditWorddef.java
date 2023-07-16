@@ -66,8 +66,8 @@ public class PopupEditWorddef extends PopupMenu {
             switch (menuItem.getItemId()) {
                 //  CHANGE WORD
                 case 0:
-                    FragmentDialogChngWrdDef fragmentDialogChngWrdDef = new FragmentDialogChngWrdDef(viewAnchor.getRootView().findViewById(R.id.pnlWordDefVrt), viewAnchor, setName);
-                    fragmentDialogChngWrdDef.show(fragmentActivity.getSupportFragmentManager(), context.getResources().getString(R.string.change));
+//                    FragmentDialogChngWrdDef fragmentDialogChngWrdDef = new FragmentDialogChngWrdDef(viewAnchor.getRootView().findViewById(R.id.pnlWordDefVrt), viewAnchor, setName);
+//                    fragmentDialogChngWrdDef.show(fragmentActivity.getSupportFragmentManager(), context.getResources().getString(R.string.change));
 
                     break;
 
