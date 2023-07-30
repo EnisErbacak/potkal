@@ -50,44 +50,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnSearchWord"
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llWordDefBtnContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:backgroundTint="#111F29"
-        app:layout_constraintBottom_toTopOf="@+id/btnWordDefOpt"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/icon_search" />
+        app:layout_constraintBottom_toTopOf="@id/btnWordDefAddWord"
+        android:layout_marginBottom="5dp"
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnWordDefOpt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
         android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/icon_options"
-        app:backgroundTint="#111F29"
-        app:layout_constraintBottom_toTopOf="@+id/btnWordDefSrt"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:focusableInTouchMode="true"
+        android:minHeight="150dp"
+        android:minWidth="75dp"
+        android:focusable="true">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnWordDefSrt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="4dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/icon_sort"
-        app:backgroundTint="#111F29"
-        app:layout_constraintBottom_toTopOf="@+id/btnWordDefAddWord"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnSearchWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:backgroundTint="#111F29"
+            app:layout_constraintBottom_toTopOf="@+id/btnWordDefOpt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/icon_search"
+            android:visibility="gone"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnWordDefOpt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/icon_options"
+            app:backgroundTint="#111F29"
+            app:layout_constraintBottom_toTopOf="@+id/btnWordDefSrt"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnWordDefSrt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="4dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/icon_sort"
+            app:backgroundTint="#111F29"
+            app:layout_constraintBottom_toTopOf="@+id/btnWordDefAddWord"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnWordDefAddWord"

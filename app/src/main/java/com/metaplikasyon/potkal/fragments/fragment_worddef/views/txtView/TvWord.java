@@ -49,8 +49,8 @@ public class TvWord extends androidx.appcompat.widget.AppCompatTextView {
     private class ViewWordLongPressListener implements View.OnLongClickListener {
         @Override
         public boolean onLongClick(View view) {
-            PopupEditWorddef menu = new PopupEditWorddef(getContext(), (TvWord) view, setName);
-            menu.show();
+            //PopupEditWorddef menu = new PopupEditWorddef(getContext(), (TvWord) view, setName);
+            //menu.show();
             return false;
         }
     }

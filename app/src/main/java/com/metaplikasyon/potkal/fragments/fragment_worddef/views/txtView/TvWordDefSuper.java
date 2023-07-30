@@ -20,8 +20,8 @@ public class TvWordDefSuper extends androidx.appcompat.widget.AppCompatTextView 
         setOnLongClickListener(new OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                PopupEditWorddef menu = new PopupEditWorddef(getContext(), ((LlWordDefSuper)getParent()).getTvWord(), FragmentWordDef.setName);
-                menu.show();
+//                PopupEditWorddef menu = new PopupEditWorddef(getContext(), ((LlWordDefSuper)getParent()).getTvWord(), FragmentWordDef.setName);
+//                menu.show();
                 return false;
             }
         });

@@ -11,7 +11,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.metaplikasyon.potkal.R;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.FragmentWordDef;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.data.Word;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.popup.PopupEditWorddef;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.views.txtView.TvWord;
 
 import org.w3c.dom.Text;
 
@@ -37,6 +40,10 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
             tvWord = view.findViewById(R.id.tvWord);
             tvPoint = view.findViewById(R.id.tvPoint);
             tvDef = view.findViewById(R.id.tvDef);
+        }
+
+        private void attachLongClickListener(ConstraintLayout constraintLayout) {
+
         }
     }
 
@@ -64,11 +71,22 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
+        Context context = viewHolder.parentContainer.getContext();
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         viewHolder.tvWord.setText(localDataSet.get(position).getWrd());
         viewHolder.tvDef.setText(localDataSet.get(position).getDef());
         viewHolder.tvPoint.setText(String.valueOf(localDataSet.get(position).getPts()));
+
+        viewHolder.parentContainer.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                PopupEditWorddef menu = new PopupEditWorddef(context, viewHolder.parentContainer
+                        , FragmentWordDef.setName, position);
+                menu.show();
+                return false;
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)

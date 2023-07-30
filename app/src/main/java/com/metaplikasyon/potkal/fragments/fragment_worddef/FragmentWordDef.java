@@ -2,8 +2,12 @@ package com.metaplikasyon.potkal.fragments.fragment_worddef;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -12,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -49,13 +54,14 @@ public class FragmentWordDef extends Fragment  {
     private EtSrchWrd etSrchWrd;
     private LinearLayout pnlWordDefVrt;
 
-    private FloatingActionButton btnWordDefAddWord;
-    private SimpleRecyclerAdapter simpleRecyclerAdapter;
+    private FloatingActionButton btnWordDefAddWord, btnSearchWord, btnWordDefOpt, btnWordDefSrt;
+    private LinearLayoutCompat llWordDefBtnContainer;
+    private static SimpleRecyclerAdapter simpleRecyclerAdapter;
     public static int ORDER_BY=0;
 
     public static String setName;
 
-    private ArrayList<Word> words;
+    private static ArrayList<Word> words;
 
     public FragmentWordDef(String setName)
     {
@@ -102,6 +108,14 @@ public class FragmentWordDef extends Fragment  {
                         .getSupportFragmentManager(), "ADD NEW WORD");
             }
         });
+
+        btnSearchWord = getView().findViewById(R.id.btnSearchWord);
+        btnWordDefOpt = getView().findViewById(R.id.btnWordDefOpt);
+        btnWordDefSrt = getView().findViewById(R.id.btnWordDefSrt);
+
+        llWordDefBtnContainer = getView().findViewById(R.id.llWordDefBtnContainer);
+        llWordDefBtnContainer.setOnTouchListener(new SwipeTouchListener(view.getContext(), llWordDefBtnContainer));
+
 
 //        clMainWorddef=view.findViewById(R.id.clMainWorddef);
 //        svMainWorddef=view.findViewById(R.id.svMainWorddef);
@@ -161,7 +175,7 @@ public class FragmentWordDef extends Fragment  {
         return wordList;
     }
 
-    public ArrayList<Word> getWords() {
+    public static ArrayList<Word> getWords() {
         return words;
     }
 
@@ -169,7 +183,110 @@ public class FragmentWordDef extends Fragment  {
         this.words = words;
     }
 
-    public void updateUi() {
-        simpleRecyclerAdapter.notifyDataSetChanged();
+    public static void updateUi() {
+
+        if(simpleRecyclerAdapter != null ) {
+            simpleRecyclerAdapter.notifyDataSetChanged();
+        }
     }
+
+
+
+
+    class SwipeTouchListener implements View.OnTouchListener {
+
+        private final GestureDetector gestureDetector;
+
+        private final int SWIPE_THRESHOLD = 15;
+        private final int SWIPE_MIN_DISTANCE = 12;
+        private final int SWIPE_MAX_OFF_PATH = 25;
+        private final int SWIPE_THRESHOLD_VELOCITY = 20;
+        private final LinearLayoutCompat ll;
+        public SwipeTouchListener(Context context, LinearLayoutCompat ll){
+            gestureDetector = new GestureDetector(context, new GestureListener());
+            this.ll = ll;
+        }
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            return gestureDetector.onTouchEvent(event);
+        }
+
+        private final class GestureListener extends GestureDetector.SimpleOnGestureListener {
+
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
+
+            @Override
+            public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+                if ((e1.getAction() == MotionEvent.ACTION_DOWN) &&
+                        (e2.getAction() == MotionEvent.ACTION_MOVE) &&
+                        Math.abs(distanceX) > SWIPE_THRESHOLD) {
+
+                    if (e2.getPointerCount() > 1) {
+                        if (distanceX > 0)
+                            onTwoFingerSwipeLeft();
+                        else
+                            onTwoFingerSwipeRight();
+                        return true;
+                    }
+
+                }
+                return super.onScroll(e1, e2, distanceX, distanceY);
+            }
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
+                                   float velocityY) {
+
+                if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH) {
+                    if (Math.abs(e1.getX() - e2.getX()) > SWIPE_MAX_OFF_PATH
+                            || Math.abs(velocityY) < SWIPE_THRESHOLD_VELOCITY)
+                        return false;
+                    if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE)
+                        onSwipeUp();
+                    else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE)
+                        onSwipeDown();
+                } else {
+                    if (Math.abs(velocityX) < SWIPE_THRESHOLD_VELOCITY)
+                        return false;
+                    if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE)
+                        onSwipeLeft();
+                    else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE)
+                        onSwipeRight();
+                }
+                return super.onFling(e1, e2, velocityX, velocityY);
+            }
+
+        }
+
+        public void onSwipeRight() {}
+
+        public void onSwipeLeft() {
+            btnSearchWord.setVisibility(View.VISIBLE);
+            btnWordDefOpt.setVisibility(View.VISIBLE);
+            btnWordDefSrt.setVisibility(View.VISIBLE);
+
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    btnSearchWord.setVisibility(View.GONE);
+                    btnWordDefOpt.setVisibility(View.GONE);
+                    btnWordDefSrt.setVisibility(View.GONE);
+                }
+            }, 2000);
+
+        }
+    }
+
+        public void onSwipeUp() {}
+
+        public void onSwipeDown() {}
+
+        public void onTwoFingerSwipeLeft() {}
+
+        public void onTwoFingerSwipeRight() {}
 }

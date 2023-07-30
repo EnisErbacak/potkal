@@ -18,22 +18,29 @@ import androidx.fragment.app.FragmentActivity;
 import com.metaplikasyon.potkal.MainActivity;
 import com.metaplikasyon.potkal.R;
 import com.metaplikasyon.potkal.cloud_service.manager.CloudManager;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.FragmentWordDef;
+import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.data.Word;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.dialog.dialog.FragmentDialogChngWrdDef;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.builder.ui.operator.BuilderEditor;
 import com.metaplikasyon.potkal.fragments.fragment_worddef.manager.WorddefManager;
 import com.metaplikasyon.potkal.other.ScannerActivity;
 import com.metaplikasyon.potkal.reaction.Reactor;
 
+import java.util.ArrayList;
+
 public class PopupEditWorddef extends PopupMenu {
     private final String setName;
+    private final int position;
     private final Context context;
-    public PopupEditWorddef(Context context, TextView anchor, String setName) {
+    public PopupEditWorddef(Context context, View anchor, String setName, int position) {
         super(context, anchor);
         this.setName=setName;
+        this.position = position;
         this.context=context;
         onCreate();
         setOnMenuItemClickListener(new PopupEditWordDefLstner(anchor, setName));
     }
+
 
     private Activity scanForActivity(Context cont) {
         if (cont == null)
@@ -53,10 +60,10 @@ public class PopupEditWorddef extends PopupMenu {
 
 
     private class PopupEditWordDefLstner implements PopupMenu.OnMenuItemClickListener {
-        private final TextView viewAnchor;
+        private final View viewAnchor;
         private final FragmentActivity fragmentActivity;
 
-        public PopupEditWordDefLstner(TextView viewAnchor, String setName) {
+        public PopupEditWordDefLstner(View viewAnchor, String setName) {
             this.viewAnchor = viewAnchor;
             fragmentActivity = (FragmentActivity) scanForActivity(context);
         }
@@ -85,10 +92,15 @@ public class PopupEditWorddef extends PopupMenu {
                     positive.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            new WorddefManager().operate(context).remove(viewAnchor.getText().toString());
+//                            new WorddefManager().operate(context).remove(viewAnchor.getText().toString());
                             //editor.delete();
-                            new BuilderEditor().getUiEditor(context, setName).updateScreen();
+                            //new BuilderEditor().getUiEditor(context, setName).updateScreen();
 
+                            ArrayList<Word> words = FragmentWordDef.getWords();
+                            new WorddefManager().operate(context).remove(words.get(position).getWrd());
+                            words.remove(position);
+
+                            FragmentWordDef.updateUi();
                             new Reactor(context).showShort(context.getResources().getString(R.string.deleted));
                             removeDialog.dismiss();
                         }
@@ -100,32 +112,6 @@ public class PopupEditWorddef extends PopupMenu {
                         }
                     });
                     removeDialog.show();
-
-
-
-
-
-//                    final AlertDialog dialogDeleteWord = new AlertDialog.Builder(viewAnchor.getContext()).create();
-//                    dialogDeleteWord.setMessage(context.getResources().getString(R.string.word_will_be_deleted));
-//
-//                    dialogDeleteWord.setButton(AlertDialog.BUTTON_POSITIVE,context.getResources().getString(R.string.delete) ,
-//                            new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    new WorddefManager().operate(context).remove(viewAnchor.getText().toString());
-//                                    //editor.delete();
-//                                    new BuilderEditor().getUiEditor(context, setName).updateScreen();
-//
-//                                    new Reactor(context).showShort(context.getResources().getString(R.string.deleted));
-//                                }
-//                            });
-//
-//                    dialogDeleteWord.setButton(AlertDialog.BUTTON_NEGATIVE, context.getResources().getString(R.string.cancel),
-//                            new DialogInterface.OnClickListener() {
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    dialogDeleteWord.dismiss();
-//                                }
-//                            });
-//                    dialogDeleteWord.show();
                     return false;
             }
             return false;

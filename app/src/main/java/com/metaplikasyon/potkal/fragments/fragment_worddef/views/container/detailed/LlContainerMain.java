@@ -49,8 +49,8 @@ public class LlContainerMain extends LinearLayout {
         setOnLongClickListener(new OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                PopupEditWorddef menu = new PopupEditWorddef(getContext(), (TvWord) clContainerUpper.getTvWord(), FragmentWordDef.setName);
-                menu.show();
+                //PopupEditWorddef menu = new PopupEditWorddef(getContext(), (TvWord) clContainerUpper.getTvWord(), FragmentWordDef.setName);
+                //menu.show();
                 return false;
             }
         });
@@ -77,8 +77,8 @@ public class LlContainerMain extends LinearLayout {
 
     public void showLong() {
         TvWord tvWord= (TvWord) clContainerUpper.getTvWord();
-        PopupEditWorddef menu = new PopupEditWorddef(getContext(), (TvWord) tvWord, FragmentWordDef.setName);
-        menu.show();
+//        PopupEditWorddef menu = new PopupEditWorddef(getContext(), (TvWord) tvWord, FragmentWordDef.setName);
+//        menu.show();
     }
 
     public ClContainerUpper getLlContainerUpper() {
